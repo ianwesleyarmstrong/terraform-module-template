@@ -114,10 +114,7 @@ No providers.
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_make_exciting"></a> [make\_exciting](#module\_make\_exciting) | ./modules/make_exciting | n/a |
-| <a name="module_say_hello"></a> [say\_hello](#module\_say\_hello) | ./modules/say_hello | n/a |
+No modules.
 
 ## Resources
 
@@ -125,15 +122,11 @@ No resources.
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | The name of a person or thing to say hello to. | `string` | `"World"` | no |
+No inputs.
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_greeting"></a> [greeting](#output\_greeting) | A very exciting greeting! |
+No outputs.
 <!-- END_TF_DOCS -->
 
 
