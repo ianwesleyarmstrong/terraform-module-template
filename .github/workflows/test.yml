@@ -9,7 +9,9 @@ on:
       - '.github/workflows/release.yml'
       - '.github/workflows/pr_checks.yml'
 
-permissions: read-all
+permissions:
+  pull-requests: write
+  contents: read
 
 jobs:
   pre_commit:
@@ -18,4 +20,24 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
+      - uses: terraform-linters/setup-tflint@v3
+        name: Setup TFLint
+        with:
+          tflint_version: v0.44.1
+      - name: Install terraform-docs
+        uses: jaxxstorm/action-install-gh-release@v1.9.0
+        with:
+          repo: terraform-docs/terraform-docs
+          tag: v0.16.0
+          cache: enabled
+      - name: Install tfsec
+        uses: jaxxstorm/action-install-gh-release@v1.9.0
+        with:
+          repo: aquasecurity/tfsec
+          tag: v1.28.1
+          cache: enabled
+      - name: tfsec commenter
+        uses: tfsec/tfsec-pr-commenter-action@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: pre-commit/action@v3.0.0
